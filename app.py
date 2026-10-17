@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 
+# https://flask.palletsprojects.com/en/stable/quickstart/ quickstart for Flask
+
 load_dotenv()
 mongo_uri = os.environ["MONGO_URI"]
 
