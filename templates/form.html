@@ -1,0 +1,51 @@
+{# Used for edding and editing data in all three databases #}
+{% extends "main.html" %}
+{% block title %}{{ "Edit" if record_id else "Add" }} {{db.title}} - cafe manager{% endblock %}
+{% block content %}
+
+<h2>{{ "Edit" if record_id else "Add" }} {{ db.title | lower }}</h2>
+
+{% if error %}
+    <div class="message error">{{ error }}</div>
+{% endif %}
+
+<form method="post" class="form">
+    {% for field in db.fields %}
+        {% set value = values.get(field.name, "") %}
+        <div class="field">
+            {% if field.type == "checkbox" %}
+            <label>
+                <input type="checkbox" name="{{ field.name }}" {% if value %}checked{% endif %}>
+                {{ field.label }}
+            </label>
+
+            {% else %}
+                <label for="{{ field.name }}">
+                    {{ field.label }}{% if field.required %} *{% endif %}
+                </label>
+                {% if field.type == "select" %}
+                <select id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %}>
+                    <option value="">Choose</option>
+                    {% for choice in field.choices %}
+                        <option value="{{ choice }}" {% if choice == value %}selected{% endif %}>{{ choice }}</option>
+                    {% endfor %}
+                </select>
+                {% elif field.type == "number" %}
+                    <input type="number" id="{{ field.name }}" name="{{ field.name }}" value="{{ value }}" step="0.01" min="0" {% if field.required %}required{% endif %}>
+                {% elif field.type == "integer" %}
+                    <input type="number" id="{{ field.name }}" name="{{ field.name }}" value="{{ value }}" step="1" min="0" {% if field.required %}required{% endif %}>
+                {% elif field.type == "list" %}
+                    <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ value }}" placeholder="later">
+                {% else %}
+                    <input type="{{ field.type }}" id="{{ field.name }}" name="{{ field.name }}" value="{{ value }}" {% if field.required %}required{% endif %}>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    <div class="form-action">
+        <button type="submit" class="btn">{{ "Save changes" if record_id else "Add"}}</button>
+        <a href="{{ url_for('display_table', name=name) }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+{% endblock %}
