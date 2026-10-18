@@ -1,0 +1,41 @@
+nav {
+    display: felx;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover{
+    background: lightblue;
+}
+
+nav a.active{
+    background: lightgreen;
+    color: white;
+    font-weight: bold;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: lightblue;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+th,
+td {
+    padding:10px 12px;
+    text-align: left;
+    border-bottom: 1px solid wheat;
+}

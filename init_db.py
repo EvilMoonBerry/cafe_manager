@@ -31,7 +31,7 @@ def cafeMenu_setup():
             ("Espresso", "Coffee", 3.20, 1),
             ("Brewed tea", "Tea", 2.80, 1),
             ("Croissant", "Pastry", 3.10, 1),
-            ("Cinnamon bun", "pastry", 3.30, 0),
+            ("Cinnamon bun", "Pastry", 3.30, 0),
         ]
         conn.executemany(
             "INSERT INTO items (name, category, price, in_stock) VALUES (?, ?, ?, ?)",

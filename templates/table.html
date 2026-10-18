@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{% block content %}
+    <h2>{{ db.title }} <small> {{ db.technology }}</small></h2>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                {% for col in columns %} <th>{{ col.label }}</th>{% endfor %}
+            </tr>
+            {% for row in rows %}
+            <tr>
+                {% for col in columns %}<td>{{ row [col.name]}}</td>{% endfor %}
+            </tr>
+            {% else %}
+            <tr><td colspan="{{ columns | length}}" class="empty">No rows yet</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

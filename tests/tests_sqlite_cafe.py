@@ -11,13 +11,13 @@ print(cafe_menu.list_all())
 print(cafe_menu.get(3))
 
 new_item = cafe_menu.add(
-    {"name": "Green tea", "category": "Pastry", "price": 3.30, "in_stock": 1}
+    {"name": "Green tea", "category": "Tea", "price": 3.30, "in_stock": 1}
 )
 
 print("Addedd new item to menu.db:", new_item, cafe_menu.get(new_item))
 
 cafe_menu.update(
-    new_item, {"name": "Green tea", "category": "Pastry", "price": 3.30, "in_stock": 0}
+    new_item, {"name": "Green tea", "category": "Tea", "price": 3.30, "in_stock": 0}
 )
 
 print("Updated menu.db:", cafe_menu.get(new_item))
