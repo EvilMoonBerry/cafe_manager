@@ -37,9 +37,9 @@ def cafeMenu_setup():
             "INSERT INTO items (name, category, price, in_stock) VALUES (?, ?, ?, ?)",
             sample_items,
         )
-        print("menu.db: inserted", len(sample_items), " sample items")
+        print("menu.db (SQLite): inserted", len(sample_items), " sample items")
     else:
-        print("menu.db: already has", count, " items, skipped")
+        print("menu.db (SQLite): already has", count, " items, skipped")
 
     conn.commit()
     conn.close()
@@ -71,9 +71,9 @@ def cafeStaff_setup():
             "INSERT INTO staff_persons (name, role, hourly_wage, starting_date) VALUES (?, ?, ?, ?)",
             sample_staff,
         )
-        print("staff.db: inserted", len(sample_staff), " sample staff")
+        print("staff.db (SQLite): inserted", len(sample_staff), " sample staff")
     else:
-        print("staff.db: already has", count, " staff, skipped")
+        print("staff.db (SQLite): already has", count, " staff, skipped")
 
     conn.commit()
     conn.close()
@@ -111,7 +111,7 @@ def cafeCustomers_setup():
         customers.insert_many(sample_customers)
         print("Customers (MongoDB): inserted", len(sample_customers), " sample customers")
     else:
-        print("Customers (MongoDB): already has", count, " sample customers")
+        print("Customers (MongoDB): already has", count, " sample customers, skipped")
 
     client.close()
 
