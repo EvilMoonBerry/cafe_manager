@@ -1,13 +1,12 @@
 # Cafe-Manager
 
 > [!IMPORTANT]
->DECLARATION OF USE OF AI: Anthropic: Claude version Opus 5.5 was used to create and debug Dockerfile and compose.yaml 
+>DECLARATION OF USE OF AI: Anthropic: Claude version Opus 5.5 was used help with creating Dockerfile and compose.yaml and debugging code 
 
 Skeleton web app for managing a cafe’s menu, staff and customers. Each data set (menu, staff and customers) has its own database and front end to view the data from each database.
 
 ## Video
-<video src="Assignment 2.mp4" width="100%"></video>
-
+https://github.com/user-attachments/assets/36961717-25ed-4213-9b4b-767a0dba0e11
 
 | Database | Technology | Stored |
 | -------- | ---------- | ------ |
